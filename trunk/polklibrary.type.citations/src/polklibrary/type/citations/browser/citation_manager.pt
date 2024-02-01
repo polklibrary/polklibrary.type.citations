@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone"
+	  lang="en">
+    <body>
+
+        <metal:block fill-slot="javascript_head_slot">
+            <script src="${view/portal/absolute_url}/++resource++polklibrary.type.citations/citations.edit.js" type="text/javascript"></script>
+        </metal:block>
+        
+        <metal:block fill-slot="style_slot">
+            <link href="${view/portal/absolute_url}/++resource++polklibrary.type.citations/citations.css" type="text/css" rel="stylesheet" />
+        </metal:block>
+
+        <metal:content-title fill-slot="content-title" >
+            <h1 class="documentFirstHeading">${context/Title}</h1>
+        </metal:content-title>
+
+        <metal:content-description fill-slot="content-description">
+            <div class="documentDescription description">${context/Description}</div>
+        </metal:content-description>
+
+        <metal:content fill-slot="content-core">
+
+            <div id="citation-edit" class="column">
+                <form id="form" enctype="multipart/form-data" method="post" action="${view/action}" class="rowlike enableUnloadProtection" data-pat-autotoc="levels: legend; section: fieldset; className: autotabs">
+                    
+                    <div id="formfield-form-widgets-title" data-fieldname="form.widgets.title" class="field pat-inlinevalidation kssattr-fieldname-form.widgets.title empty" data-pat-inlinevalidation="{&quot;type&quot;:&quot;z3c.form&quot;}">
+                        <label class="horizontal" for="form-widgets-title">
+                            Citation
+                            <span title="Required" class="required horizontal">&nbsp;</span>
+                        </label>
+                        <div class="fieldErrorBox"></div>
+                        <input type="text" value="${view/title}" class="text-widget required textline-field" name="form.widgets.title" id="form-widgets-title" />
+                    </div>
+                    
+                    <div>
+                        <span id="citation-text"></span>
+                        <input type="button" value="Define Citation Section" class="submit-widget button-field context" id="form-buttons-addsection" />
+                            
+                        <br />
+                        <br />
+                        
+                        <label>Citation Sections</label>
+                        <div id="citation-template-section">
+                        
+                        </div>
+                    </div>
+                    
+                    <div id="citation-template">
+                        <div class="dynamic-field">
+                            <input type="text" placeholder="Exact Citation Snippet" value="" name="cite.target" />
+                            <input type="text" placeholder="Message Response" value="" name="cite.message" />
+                            <label>Is it wrong? <input type="checkbox" name="cite.is_error" /></label>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                            <label>Make Italic? <input type="checkbox" name="cite.is_italic" /></label>
+                        </div>
+                    </div>
+                    
+                    <div id="formfield-form-widgets-json_data" data-fieldname="form.widgets.json_data" class="field pat-inlinevalidation kssattr-fieldname-form.widgets.json_data empty" data-pat-inlinevalidation="{&quot;type&quot;:&quot;z3c.form&quot;}">
+                        <label class="horizontal" for="form-widgets-json_data">
+                            Json Data
+                        </label>
+                        <div class="fieldErrorBox"></div>
+                        <textarea class="textarea-widget text-field" name="form.widgets.json_data" id="form-widgets-json_data">${view/json_data}</textarea>
+                    </div>
+                    
+                    <br />
+                    
+                    <div id="formfield-form-widgets-body" data-fieldname="form.widgets.body" class="field pat-inlinevalidation kssattr-fieldname-form.widgets.body" data-pat-inlinevalidation="{&quot;type&quot;:&quot;z3c.form&quot;}">
+                        <label class="horizontal" for="form-widgets-body">
+                            Information about this citation
+                        </label>
+                        <div class="fieldErrorBox"></div>
+
+                        <textarea class="pat-tinymce" name="form.widgets.body" data-pat-tinymce=''>${view/body}</textarea>
+                    </div>
+                        
+                    <div class="formControls">
+                        <input type="submit" value="Save" class="submit-widget button-field context" name="form.buttons.save" id="form-buttons-save" />
+                        <input type="submit" value="Cancel" class="submit-widget button-field standalone" name="form.buttons.cancel" id="form-buttons-cancel" />
+                    </div>
+                    
+                </form>
+                
+            </div>
+    
+
+        </metal:content>
+
+    </body>
+</html>

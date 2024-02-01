@@ -1,0 +1,120 @@
+
+/* EDIT */
+#formfield-form-widgets-json_data {
+    display: none;
+}
+#citation-template {
+    display: none;
+}
+.dynamic-field {
+    background: #ddd;
+    padding: 10px;
+}
+.dynamic-field:nth-child(odd){
+    background: #eee;
+}
+.dynamic-field > * {
+    margin: 4px 0;
+}
+
+.dynamic-field > .citation-error {
+    background-color: pink;
+    border-color: red;
+}
+
+
+/* VIEW */
+#citation-string, #citation-data { display: none; }
+
+#citation-test {
+    background-color: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+#citation-test span {
+    position: relative;
+}
+#citation-test span:hover {
+    background-color: #71BCF5;
+    border-radius: 3px;
+}
+
+#citation-test span[data-found="true"] {
+    background-color: #DFDF4F !important;
+    border: 1px dashed red;
+    border-radius: 3px;
+}
+
+#citation-test span[data-is_italic="true"] {
+    font-style: italic;
+}
+
+#citation-test  span.active:after {
+    border-bottom: 20px solid #2E64FE;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    content: " ";
+    font-weight: bold;
+    position: absolute;
+    left: 0px;
+    top: 16px;
+    z-index: 2;
+}
+
+#citation-help {
+    background-color: #2E64FE;
+    border-radius: 2px;
+    color: white;
+    display: none;
+    left: 0;
+    position: absolute;
+    padding: 10px;
+    right: 0;
+    z-index: 2;
+}
+.citation-hint {
+    color: #666;
+    font-style: italic;
+    margin-left: 20px;
+}
+#citation-options {
+    padding: 20px;
+}
+
+#finished{
+    color: white;
+    background-color: #2385c4;
+    font-weight: bold;
+}
+#next-citation{
+    display: none;
+    font-weight: bold;
+    position: relative;
+    height: 22px;
+}
+
+#next-citation:after{
+    border-bottom: 16px solid transparent;
+    border-left: 16px solid #2385c4;
+    border-top: 16px solid transparent;
+    bottom: 0;
+    content: " ";
+    height: auto;
+    position: absolute;
+    right: -17px;
+    top: 0;
+}
+
+#citation-results-perfect, #citation-results-okay {
+    background-color: #6FD26F;
+    border-radius: 3px;
+    display: none;
+    margin: 10px 0;
+}
+#citation-results-okay {
+    background-color: #D28A6F;
+}

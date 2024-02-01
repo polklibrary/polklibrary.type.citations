@@ -1,0 +1,44 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="polklibrary.type.citations">
+
+        
+    <browser:page
+        for="polklibrary.type.citations.models.citation.ICitation"
+        name="citation_edit"
+        class=".citation.CitationManager"
+        permission="cmf.ModifyPortalContent"
+        />
+    
+    <browser:page
+        for="Products.CMFCore.interfaces.IFolderish"
+        name="citation_add"
+        class=".citation.CitationManager"
+        permission="cmf.AddPortalContent"
+        />
+    
+    <browser:page
+        for="polklibrary.type.citations.models.citation.ICitation"
+        name="citation_view"
+        class=".citation.CitationView"
+        permission="zope2.View"
+        />
+        
+
+    
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="polklibrary.type.citations.interfaces.IPolklibraryTypeCitationsLayer"
+      />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="polklibrary.type.citations"
+      directory="static"
+      />
+
+</configure>
